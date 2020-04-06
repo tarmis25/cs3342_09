@@ -42,7 +42,9 @@ represent the tiles.
 
 ## A1.1
 
-«replace this with your answer»
+S -> A
+S -> A S A
+A -> "r" | "g" | "b"
 
 
 ## Q1.2  (1 point for the O() answer, 2 for the sentence)
@@ -53,7 +55,7 @@ In one sentence, explain why.
 
 ## A1.2
 
-«replace this with your answer»
+I beleive using this the memory requirment would be O(1) just becasue it will continue to just use two as it recursivly calls until the base case. 
 
 
 # Q2
@@ -82,8 +84,12 @@ Write the BNF (not EBNF) description for this language.
 
 ## A2.1
 
-«replace this with your answer»
-
+<scent> ::== "the" <possibleadj> <noun> <verb> <possibleadverb>
+<possibleadj> ::== "" | <adjective> | <adjective> <possibleadj>
+<adjective> ::== "lazy" | "smelly"
+<noun> ::== "dog" | "cat"
+<verb> ::== "ate" | "ran"
+<possibleadverb> ::== "" | "slowly" | "noisily"
 
 ## Q2.2 (5 points)
 
@@ -91,7 +97,7 @@ Write this grammar using EBNF with common extensions
 
 ## A2.2
 
-«replace this with your answer»
+<scentence> ::== "the" {"lazy" | "smelly"} ("dog" | "cat") ("ran" | "ate") ["slowly" | "nosily"]
 
 
 ## Q2.3 (6 points)
@@ -109,7 +115,7 @@ Write this grammar using EBNF with common extensions
 
 ## A2.3
 
-«replace this with your answer»
+IMG_4492.JPG
 
 
 ## Q2.4 (6 points)
@@ -125,7 +131,22 @@ Current state | Next word | Next state
 
 ## A2.4
 
-«replace this with your answer»
+Current state | Next word | Next state
+--------------|-----------|-----------
+    S0        |    the    |     S1
+    S1        |    lazy   |     S1
+    S1        |    smelly |     S1
+    S1        |           |     S2
+    S2        |    cat    |     S3
+    S2        |    dog    |     S3
+    S3        |    ran    |     S4
+    S3        |    ate    |     S4
+    S4        |    slowly |     S5
+    S4        |    noisily|     S5
+    S4        |    EOI    |     END
+    S5        |    EOI    |     END
+    
+
 
 
 ## Q2.5 (12 points)
@@ -145,7 +166,7 @@ code, include a script or makefile that will do the job.
 
 ## A2.5
 
-«replace this with your answer»
+
 
 
 ## Q2.6 (3 points)
@@ -154,7 +175,8 @@ How many valid sentences are there in this language?
 
 ## A2.6
 
-«replace this with your answer»
+I beleive that there is infinite becasue in order to be vailid it can go through but there is 
+nothing that limits from the the S1 going to S1 into infinity.
 
 
 ## Q2.7 (1 point for the level, 2 for the sentence)
@@ -164,4 +186,4 @@ explain why.
 
 ## A2.7
 
-«replace this with your answer»
+Type three because this can be parsed using a stack, and therefore that is all that is required.
